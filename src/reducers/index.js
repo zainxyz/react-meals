@@ -1,4 +1,4 @@
-import { ADD_RECIPIE, REMOVE_FROM_CALENDAR } from '../actions';
+import { ADD_RECIPIE, REMOVE_RECIPE } from '../actions';
 
 /**
  * The initial state for our reducer
@@ -42,6 +42,13 @@ const initialCalendarState = {
   },
 };
 
+/**
+ * The main calendar reducer
+ * @method calendar
+ * @param  {Object} [state=initialCalendarState] The initial state
+ * @param  {Object} action                       The passed in action
+ * @return {Object}                              The updated state based on the passed-in action
+ */
 const calendar = (state = initialCalendarState, action) => {
   const { day, recipe, meal } = action;
 
@@ -55,7 +62,7 @@ const calendar = (state = initialCalendarState, action) => {
         },
       };
     }
-    case REMOVE_FROM_CALENDAR: {
+    case REMOVE_RECIPE: {
       return {
         ...state,
         [day]: {

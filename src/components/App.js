@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { normalizedCalendar } from '../selectors';
+import { addRecipe, removeRecipe } from '../actions';
 
 class App extends Component {
   render() {
@@ -13,5 +14,9 @@ class App extends Component {
 export default connect(
   createStructuredSelector({
     calendar: normalizedCalendar,
-  })
+  }),
+  {
+    addRecipe,
+    removeRecipe,
+  }
 )(App);
