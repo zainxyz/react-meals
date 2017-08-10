@@ -10,14 +10,14 @@ const DAY_ORDER = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frid
  * NOTE: Bad practice, the state shouldn't be modified heavily.
  *
  * @method normalizedCalendar
- * @param  {Object}           state The current app's state
- * @return {array}                  The normalized app state (in an array format)
+ * @param  {Object} state The current app's state
+ * @return {Array}        The normalized app state (in an array format)
  */
-const normalizedCalendar = state =>
+const normalizedCalendar = ({ calendar, food }) =>
   DAY_ORDER.map(day => ({
     day,
-    meals: Object.keys(state[day]).reduce((meals, meal) => {
-      meals[meal] = state[day][meal] ? state[day][meal] : null;
+    meals: Object.keys(calendar[day]).reduce((meals, meal) => {
+      meals[meal] = calendar[day][meal] ? food[calendar[day][meal]] : null;
       return meals;
     }, {}),
   }));

@@ -1,79 +1,24 @@
-import { ADD_RECIPIE, REMOVE_RECIPE } from '../actions';
+import { combineReducers } from 'redux';
+
+import food from './food';
+import calendar from './calendar';
 
 /**
- * The initial state for our reducer
- * @type {Object}
+ * NOTE: Taken from Redux Docs...
+ *
+ * In a more complex app, you're going to want different entities to reference each other.
+ * We suggest that you keep your state as normalized a possible, without any nesting.
+ * Keep every entity in an object stored with an ID as a key, and use IDs to reference
+ * it from other entities, or lists.
+ *
+ * Normalization is the process of removing duplicate pieces of data, and making sure that the
+ * data is as shallow as possible. Not only does this allow applications to maintain the
+ * 'single source of truth' in the store's state -- reducer logic that updates the state
+ * is also kept clean and reasonable. Ultimately, normalizing your Redux store will lead to
+ * more efficient and consistent queries.
  */
-const initialCalendarState = {
-  sunday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  monday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  tuesday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  wednesday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  thursday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  friday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-  saturday: {
-    breakfast: null,
-    lunch: null,
-    dinner: null,
-  },
-};
 
-/**
- * The main calendar reducer
- * @method calendar
- * @param  {Object} [state=initialCalendarState] The initial state
- * @param  {Object} action                       The passed in action
- * @return {Object}                              The updated state based on the passed-in action
- */
-const calendar = (state = initialCalendarState, action) => {
-  const { day, recipe, meal } = action;
-
-  switch (action.type) {
-    case ADD_RECIPIE: {
-      return {
-        ...state,
-        [day]: {
-          ...state[day],
-          [meal]: recipe.label,
-        },
-      };
-    }
-    case REMOVE_RECIPE: {
-      return {
-        ...state,
-        [day]: {
-          ...state[day],
-          [meal]: null,
-        },
-      };
-    }
-    default:
-      return state;
-  }
-};
-
-export default calendar;
+export default combineReducers({
+  food,
+  calendar,
+});
