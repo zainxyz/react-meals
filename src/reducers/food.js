@@ -1,4 +1,4 @@
-import { ADD_RECIPIE } from '../actions';
+import { ADD_RECIPIE } from '../constants';
 
 /**
  * The food reducer

@@ -1,13 +1,4 @@
-/**
- * Add Recipe Constant
- * @type {string}
- */
-export const ADD_RECIPIE = 'ADD_RECIPIE';
-/**
- * Remove Recipe Constant
- * @type {string}
- */
-export const REMOVE_RECIPE = 'REMOVE_RECIPE';
+import { ADD_RECIPIE, REMOVE_RECIPE } from '../constants';
 
 /**
  * An action to add a recipe

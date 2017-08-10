@@ -1,4 +1,4 @@
-import { ADD_RECIPIE, REMOVE_RECIPE } from '../actions';
+import { ADD_RECIPIE, REMOVE_RECIPE } from '../constants';
 
 /**
  * The initial state for our reducer

@@ -1,8 +1,4 @@
-/**
- * List of the days of the week in order from Sunday -> Saturday.
- * @type {Array}
- */
-const DAY_ORDER = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+import { WEEKDAYS_LIST } from '../constants';
 
 /**
  * Normalize the current app state into an array of weeks.
@@ -14,7 +10,7 @@ const DAY_ORDER = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frid
  * @return {Array}        The normalized app state (in an array format)
  */
 const normalizedCalendar = ({ calendar, food }) =>
-  DAY_ORDER.map(day => ({
+  WEEKDAYS_LIST.map(day => ({
     day,
     meals: Object.keys(calendar[day]).reduce((meals, meal) => {
       meals[meal] = calendar[day][meal] ? food[calendar[day][meal]] : null;
