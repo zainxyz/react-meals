@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { normalizedCalendar } from '../selectors';
 
 class App extends Component {
   render() {
@@ -6,4 +10,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  createStructuredSelector({
+    calendar: normalizedCalendar,
+  })
+)(App);

@@ -8,38 +8,38 @@ const initialCalendarState = {
   sunday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   monday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   tuesday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   wednesday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   thursday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   friday: {
     breakfast: null,
     lunch: null,
-    dinner: null
+    dinner: null,
   },
   saturday: {
     breakfast: null,
     lunch: null,
-    dinner: null
-  }
+    dinner: null,
+  },
 };
 
 const calendar = (state = initialCalendarState, action) => {
@@ -51,8 +51,8 @@ const calendar = (state = initialCalendarState, action) => {
         ...state,
         [day]: {
           ...state[day],
-          [meal]: recipe.label
-        }
+          [meal]: recipe.label,
+        },
       };
     }
     case REMOVE_FROM_CALENDAR: {
@@ -60,8 +60,8 @@ const calendar = (state = initialCalendarState, action) => {
         ...state,
         [day]: {
           ...state[day],
-          [meal]: null
-        }
+          [meal]: null,
+        },
       };
     }
     default:
